@@ -1,66 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
   <head>
     <meta charset="UTF-8" />
-    <link rel="shortcut icon" type="X-UA-Compatible" href="photos/Icon.png">
+    <link rel="shortcut icon" type="image/png" href="photos/Icon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Personality Test</title>
+    <title>Test de Personalitate</title>
+    <!-- Font Google Inter pentru un aspect modern și calm -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome pentru iconițe -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <nav>
+    
+    <!-- Navbar minimalist -->
+    <nav class="navbar">
+      <div class="nav-brand"><i class="fa-solid fa-seedling"></i> Test de Personalitate</div>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Acasă</a></li>
+        <li><a href="info.html">Informații</a></li>
+      </ul>
     </nav>
-    <div class="welcome">
-      <img class="header-image" src="photos/personality-tests.webp" alt="header image" />
-      <div class="start-test" onclick="startTest()">Start test <i class="fas fa-arrow-right"></i></div>
+
+    <!-- Ecran de întâmpinare -->
+    <div class="welcome" id="welcome-screen">
+      <div class="welcome-card">
+        <img class="header-image" src="photos/personality-tests.webp" alt="Test de personalitate" />
+        <h1>Descoperă-ți Personalitatea</h1>
+        <p>Un chestionar simplu și relaxant pentru a înțelege mai bine cine ești.</p>
+        <div class="start-test" onclick="startTest()">
+          Start Test <i class="fas fa-arrow-right"></i>
+        </div>
+      </div>
     </div>
 
-    <div class="container">
+    <!-- Containerul principal al testului -->
+    <div class="container" id="main-container">
       <div class="question-container">
-        <div id="question-count"> Întrebare <span id="counter"></span>/5</div>
+        <div id="question-count">Întrebarea <span id="counter"></span> din 5</div>
         <div id="question"></div>
-        <div class="ans" id="div-ans-a" onclick="selectedAnswer(0)">
-          <span class="my-alpha">A</span><span id="ans-a"></span>
-        </div>
-        <div class="ans" id="div-ans-b" onclick="selectedAnswer(1)">
-          <span class="my-alpha">B</span><span id="ans-b"></span>
-        </div>
-        <div class="ans" id="div-ans-c" onclick="selectedAnswer(2)">
-          <span class="my-alpha">C</span><span id="ans-c"></span>
-        </div>
-        <div class="ans" id="div-ans-d" onclick="selectedAnswer(3)">
-          <span class="my-alpha">D</span><span id="ans-d"></span>
-        </div>
-        <div class="btn">
-          <div id="previous" onclick="previousQuestion()">< Întrebarea anterioară</div>
-          <div id="next" onclick="nextQuestion()"> Întrebarea următoare ></div>
-          <div id="restart" onclick="restartQuestion()">Restart <i class="fas fa-redo"></i></div>
+        
+        <div class="options-grid">
+          <div class="ans" id="div-ans-a" onclick="selectedAnswer(0)">
+            <span class="my-alpha">A</span><span id="ans-a"></span>
+          </div>
+          <div class="ans" id="div-ans-b" onclick="selectedAnswer(1)">
+            <span class="my-alpha">B</span><span id="ans-b"></span>
+          </div>
+          <div class="ans" id="div-ans-c" onclick="selectedAnswer(2)">
+            <span class="my-alpha">C</span><span id="ans-c"></span>
+          </div>
+          <div class="ans" id="div-ans-d" onclick="selectedAnswer(3)">
+            <span class="my-alpha">D</span><span id="ans-d"></span>
+          </div>
         </div>
 
-        <div id="test-result">
-            <img src="photos/Introvert.jpg" id="image" />
-            <div id="trait">
-              <strong id="trait-title"></strong> <br />
-              <div>Câteva aspecte pe care le include personalitatea ta ar fi faptul că:</div>
-              <ul id="personalities"></ul><br>
-            </div>
-              <div id="personality-message" ></div>
-              <ul class="nav-bar">
-                <h3><strong class="nav-item"><a href="info.html"> Mai multe informatii </a></strong></h3>
-              </ul>
-          </div>
+        <div class="btn">
+          <div id="previous" onclick="previousQuestion()"><i class="fas fa-chevron-left"></i> Anterioară</div>
+          <div id="restart" onclick="restartQuestion()"><i class="fas fa-redo"></i> Restart</div>
+          <div id="next" onclick="nextQuestion()">Următoarea <i class="fas fa-chevron-right"></i></div>
         </div>
-        <div class="your-answers">
-          <div class="title">Răspunsurile selectate de tine.</div>
-          <div id="answers"></div>
+
+        <!-- Rezultatul testului -->
+        <div id="test-result" style="display: none;">
+          <img src="photos/Introvert.jpg" id="image" alt="Rezultat" />
+          <div id="trait">
+            <strong id="trait-title"></strong>
+            <p class="result-intro">Câteva aspecte pe care le include personalitatea ta:</p>
+            <ul id="personalities"></ul>
+          </div>
+          <div id="personality-message"></div>
+          <div class="nav-bar-result">
+            <a href="info.html" class="info-link">Mai multe informații <i class="fas fa-arrow-right"></i></a>
+          </div>
         </div>
       </div>
-          </div>
-        </div>
-        
+
+      <!-- Panoul lateral cu răspunsurile utilizatorului -->
+      <div class="your-answers">
+        <div class="title"><i class="fas fa-list-check"></i> Răspunsurile tale</div>
+        <div id="answers"></div>
       </div>
     </div>
+
     <script src="js/db.js"></script>
     <script src="js/App.js"></script>
   </body>
