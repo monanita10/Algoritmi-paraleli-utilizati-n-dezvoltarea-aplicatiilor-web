@@ -243,9 +243,11 @@ body {
     display: none;
     flex-direction: column;
     align-items: center;
+    margin-top: 25px; /* Spațiu mic și aerisit deasupra pozei de rezultat */
+    border-top: 1px solid var(--accent-beige);
+    padding-top: 25px;
     text-align: center;
     width: 100%;
-    margin-top: 25px; 
 }
 
 #image {
