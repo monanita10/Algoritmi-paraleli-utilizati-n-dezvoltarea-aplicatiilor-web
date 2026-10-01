@@ -5,15 +5,12 @@
     <link rel="shortcut icon" type="image/png" href="photos/Icon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Test de Personalitate</title>
-    <!-- Font Google Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <!-- FontAwesome pentru iconițe -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     
-    <!-- Navbar minimalist -->
     <nav class="navbar">
       <div class="nav-brand"><i class="fa-solid fa-seedling"></i> Test de Personalitate</div>
       <ul class="nav-links">
@@ -22,7 +19,6 @@
       </ul>
     </nav>
 
-    <!-- Ecran de întâmpinare -->
     <div class="welcome" id="welcome-screen">
       <div class="welcome-card">
         <img class="header-image" src="photos/personality-tests.webp" alt="Test de personalitate" />
@@ -34,34 +30,35 @@
       </div>
     </div>
 
-    <!-- Containerul principal pe toată lățimea (fără panou lateral) -->
     <div class="container" id="main-container">
       <div class="question-container">
-        <div id="question-count">Întrebarea <span id="counter"></span> din 5</div>
-        <div id="question"></div>
         
-        <div class="options-grid">
-          <div class="ans" id="div-ans-a" onclick="selectedAnswer(0)">
-            <span class="my-alpha">A</span><span id="ans-a"></span>
+        <div id="quiz-content-wrap">
+          <div id="question-count">Întrebarea <span id="counter"></span> din 5</div>
+          <div id="question"></div>
+          
+          <div class="options-grid">
+            <div class="ans" id="div-ans-a" onclick="selectedAnswer(0)">
+              <span class="my-alpha">A</span><span id="ans-a"></span>
+            </div>
+            <div class="ans" id="div-ans-b" onclick="selectedAnswer(1)">
+              <span class="my-alpha">B</span><span id="ans-b"></span>
+            </div>
+            <div class="ans" id="div-ans-c" onclick="selectedAnswer(2)">
+              <span class="my-alpha">C</span><span id="ans-c"></span>
+            </div>
+            <div class="ans" id="div-ans-d" onclick="selectedAnswer(3)">
+              <span class="my-alpha">D</span><span id="ans-d"></span>
+            </div>
           </div>
-          <div class="ans" id="div-ans-b" onclick="selectedAnswer(1)">
-            <span class="my-alpha">B</span><span id="ans-b"></span>
-          </div>
-          <div class="ans" id="div-ans-c" onclick="selectedAnswer(2)">
-            <span class="my-alpha">C</span><span id="ans-c"></span>
-          </div>
-          <div class="ans" id="div-ans-d" onclick="selectedAnswer(3)">
-            <span class="my-alpha">D</span><span id="ans-d"></span>
+
+          <div class="btn">
+            <div id="previous" onclick="previousQuestion()"><i class="fas fa-chevron-left"></i> Anterioară</div>
+            <div id="restart" onclick="restartQuestion()"><i class="fas fa-redo"></i> Restart</div>
+            <div id="next" onclick="nextQuestion()">Următoarea <i class="fas fa-chevron-right"></i></div>
           </div>
         </div>
 
-        <div class="btn">
-          <div id="previous" onclick="previousQuestion()"><i class="fas fa-chevron-left"></i> Anterioară</div>
-          <div id="restart" onclick="restartQuestion()"><i class="fas fa-redo"></i> Restart</div>
-          <div id="next" onclick="nextQuestion()">Următoarea <i class="fas fa-chevron-right"></i></div>
-        </div>
-
-        <!-- Rezultatul testului -->
         <div id="test-result" style="display: none;">
           <img src="photos/Introvert.jpg" id="image" alt="Rezultat" />
           <div id="trait">
@@ -74,8 +71,11 @@
             <a href="info.html" class="info-link">Mai multe informații <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
+
       </div>
     </div>
+
+    <div id="answers" style="display: none;"></div>
 
     <script src="js/db.js"></script>
     <script src="js/App.js"></script>
