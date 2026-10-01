@@ -191,7 +191,6 @@ body {
     flex-shrink: 0;
 }
 
-/* Butoane de navigare */
 .btn {
     display: flex;
     justify-content: space-between;
@@ -216,22 +215,30 @@ body {
     background-color: var(--accent-beige);
 }
 
+.restart-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px; 
+}
+
 #restart {
     background-color: #D9826B;
     color: white;
     font-size: 13px;
     font-weight: 500;
     cursor: pointer;
-    padding: 9px 18px;
+    padding: 9px 24px;
     border-radius: 8px;
     transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 }
 
 #restart:hover {
     opacity: 0.9;
 }
 
-/* Asigură afișarea corectă a rezultatului final */
 #test-result {
     display: none;
     flex-direction: column;
